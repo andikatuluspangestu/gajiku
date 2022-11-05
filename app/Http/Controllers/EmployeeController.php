@@ -24,18 +24,32 @@ class EmployeeController extends Controller
 
     }
 
-    // Function ke Halaman Edit Data
-    public function editdata($id){
+    // Function tampilkandata
+    public function tampilkandata($id){
         $data = Employee::find($id);
-        return view ('editdata',compact('data'));
+        return view ('tampildata',compact('data'));
     }
 
-    // Function Update Data
+    // Function updatedata
     public function updatedata(Request $request, $id){
         $data = Employee::find($id);
         $data->update($request->all());
-        return redirect()->route('pegawai')->with('success','Data Berhasil Diupdate');
+
+        return redirect()->route('pegawai')->with('success', 'Data Berhasil Diupdate');
     }
+
+    // Function ke Halaman Edit Data
+    // public function editdata($id){
+    //     $data = Employee::find($id);
+    //     return view ('editdata',compact('data'));
+    // }
+
+    // Function Update Data
+    // public function updatedata(Request $request, $id){
+    //     $data = Employee::find($id);
+    //     $data->update($request->all());
+    //     return redirect()->route('pegawai')->with('success','Data Berhasil Diupdate');
+    // }
 
     // Function Delete Data
     public function deletedata($id){

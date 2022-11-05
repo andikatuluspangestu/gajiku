@@ -36,16 +36,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- Loop Nomor --}}
+                    @php
+                        $no = 1;
+                    @endphp
                     @foreach ($data as $row)
                     <tr>
-                        <th scope="row">{{ $row->id}}</th>
+                        <th scope="row">
+                            {{$no++}}
+                        </th>
                         <td>{{ $row->nama}}</td>
                         <td>{{ $row->jeniskelamin}}</td>
                         <td>0{{ $row->notelepon}}</td>
                         <td>{{$row->created_at->format('D M Y') }}</td>
                         <td>
                             <a href="/deletedata/{{ $row->id }}" class="btn btn-danger">Delete</a>
-                            <a href="/editdata/{{ $row->id }}" class="btn btn-info">Edit</a>
+                            <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
                         </td>
                     </tr>
                     @endforeach

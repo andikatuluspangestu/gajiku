@@ -17,10 +17,13 @@ Route::get('/tambahpegawai',[EmployeeController::class, 'tambahpegawai'])->name(
 Route::post('/insertdata',[EmployeeController::class, 'insertdata'])->name('insertdata');
 
 // Edit Data
-Route::get('/editdata/{id}',[EmployeeController::class, 'editdata'])->name('editdata');
-
-// Update Data
-Route::post('/updatedata/{id}',[EmployeeController::class, 'updatedata'])->name('updatedata');
+// Route::get('/editdata/{id}',[EmployeeController::class, 'editdata'])->name('editdata');
 
 // Delete Data
 Route::get('/deletedata/{id}',[EmployeeController::class, 'deletedata'])->name('deletedata');
+
+// Tampilkan Data
+Route::get('/tampilkandata/{id}',[EmployeeController::class, 'tampilkandata'])->name('tampilkandata');
+
+// Update Data
+Route::post('/updatedata/{id}',[EmployeeController::class, 'updatedata'])->name('updatedata');
