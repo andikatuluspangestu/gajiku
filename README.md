@@ -12,3 +12,10 @@ Merupakan aplikasi yang dibuat untuk memenuhi tugas akhir mata kuliah Pemrograma
 6. Run `php artisan serve`
 7. Selesai
 
+### Troubleshooting
+
+Jika terjadi error saat menjalankan `php artisan migrate`, coba jalankan `php artisan migrate:fresh` atau `php artisan migrate:refresh` untuk menghapus tabel yang sudah ada dan membuat ulang.
+
+Jika terjadi error setelah merubah route maka jalankan `php artisan route:cache` lalu `php artisan route:clear` dan terakhir `php artisan config:cache`
+
+
