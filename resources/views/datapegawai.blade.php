@@ -73,20 +73,22 @@
     <script>
 
         $('.delete').click(function(){
+            var pegawaiid = $(this).attr("data-id");
             swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
+                title: "Apakah kamu yakin??",
+                text: "Data yang kamu pilih akan terhapus secara permanen",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Poof! Your imaginary file has been deleted!", {
+                    window.location = "/deletedata/"+pegawaiid+""
+                    swal("Data telah dihapus!", {
                         icon: "success",
                     });
                 } else {
-                    swal("Your imaginary file is safe!");
+                    swal("Data tidak jadi dihapus");
                 }
             });
         })
