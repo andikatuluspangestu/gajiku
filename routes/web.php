@@ -19,11 +19,11 @@ Route::post('/insertdata',[EmployeeController::class, 'insertdata'])->name('inse
 // Edit Data
 // Route::get('/editdata/{id}',[EmployeeController::class, 'editdata'])->name('editdata');
 
-// Delete Data
-Route::get('/deletedata/{id}',[EmployeeController::class, 'deletedata'])->name('deletedata');
-
 // Tampilkan Data
 Route::get('/tampilkandata/{id}',[EmployeeController::class, 'tampilkandata'])->name('tampilkandata');
 
 // Update Data
 Route::post('/updatedata/{id}',[EmployeeController::class, 'updatedata'])->name('updatedata');
+
+// Delete Data
+Route::get('/deletedata/{id}', [EmployeeController::class, 'deletedata'])->name('deletedata');

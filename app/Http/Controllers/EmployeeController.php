@@ -19,7 +19,14 @@ class EmployeeController extends Controller
 
     // Function Insert Data
     public function insertdata(Request $request){
-        Employee::create($request->all());
+        $data = Employee::create($request->all());
+
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('fotopegawai/',$request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
+
         return redirect()->route('pegawai')->with('success','Data Berhasil Ditambahkan');
 
     }
@@ -38,20 +45,7 @@ class EmployeeController extends Controller
         return redirect()->route('pegawai')->with('success', 'Data Berhasil Diupdate');
     }
 
-    // Function ke Halaman Edit Data
-    // public function editdata($id){
-    //     $data = Employee::find($id);
-    //     return view ('editdata',compact('data'));
-    // }
-
-    // Function Update Data
-    // public function updatedata(Request $request, $id){
-    //     $data = Employee::find($id);
-    //     $data->update($request->all());
-    //     return redirect()->route('pegawai')->with('success','Data Berhasil Diupdate');
-    // }
-
-    // Function Delete Data
+    // Function deletedata
     public function deletedata($id){
         $data = Employee::find($id);
         $data->delete();
